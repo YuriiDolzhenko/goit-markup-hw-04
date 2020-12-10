@@ -136,9 +136,28 @@ p {
   margin-left: 30px;
 }
 
-.link:hover {
+.link:hover,
+.mail:hover::before {
   color: var(--akcent-color);
 }
+.mail::before {
+  display: inline-block;
+  content: '';
+  height: 12px;
+  width: 16px;
+  margin-right: 10px;
+  background-image: url('../images/icons/sprite.svg#mail');
+}
+.tel::before {
+  display: inline-block;
+  content: '';
+  height: 12px;
+  width: 16px;
+  margin-right: 10px;
+  background-image: url('../images/icons/sprite.svg#tel');
+  align-self: center;
+}
+
 /* Секция Герой */
 .hero {
   display: flex;
@@ -153,7 +172,7 @@ p {
       rgba(47, 48, 58, 0.4),
       rgba(47, 48, 58, 0.4)
     ),
-    url(../images/img.jpg);
+    url('../images/img.jpg');
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -215,6 +234,7 @@ p {
 }
 
 .desc-li:not(:last-child) {
+  width: calc((100% - 90px) / 3);
   margin-right: 30px;
 }
 .section-desc h2 {
@@ -234,6 +254,31 @@ p {
 .desc-text {
   margin-bottom: 10px;
 }
+.desc-li .icon::before {
+  display: block;
+  content: '';
+  height: 120px;
+  margin-bottom: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--secondary-background-color);
+}
+
+.icon-antena::before {
+  background-image: url('../images/icons/sprite.svg#antena');
+}
+
+.icon-clock::before {
+  background-image: url('../images/icons/sprite.svg#clock');
+}
+.icon-ps::before {
+  background-image: url('../images/icons/sprite.svg#ps');
+}
+
+.icon-astronaut::before {
+  background-image: url('../images/icons/sprite.svg#astronaut');
+}
+
 .section-img {
   /* padding-top: 94px; */
   padding-bottom: 94px;
