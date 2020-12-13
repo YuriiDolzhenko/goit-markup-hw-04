@@ -3,6 +3,8 @@
 /* первичный цвет фона #FFFFFF */
 /* вторичный цвет фона #F5F4FA */
 /* акцент #2196F3 */
+/* цвет иконок серый #AFB1B8 */
+
 /* https://elenrosee.github.io/it-studio/ */
 
 :root {
@@ -14,6 +16,7 @@
   --logo-color: #000000;
   --border-color: #ececec;
   --footer-color: #2f303a;
+  --icon-gray-color: #afb1b8;
 }
 /* значение border-box устанавливается для всех элементов 
 и псевдоэлементов документа. */
@@ -29,9 +32,11 @@
 * {
   padding: 0;
   margin: 0;
-  outline: 2px solid tomato;
+  /* outline: 2px solid tomato; */
 }
-ul {
+ul,
+.link,
+.list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -140,7 +145,38 @@ p {
 .mail:hover::before {
   color: var(--akcent-color);
 }
-.mail::before {
+.header .icon-mail::before {
+  display: inline-block;
+  content: '';
+  height: 12px;
+  width: 16px;
+  margin-right: 10px;
+  background-image: url('../images/icons/mail.svg');
+}
+
+.header .icon-tel::before {
+  display: inline-block;
+  content: '';
+  height: 16px;
+  width: 10px;
+  margin-right: 10px;
+  background-image: url('../images/icons/smartphone.svg');
+  align-self: center;
+}
+/* .link:hover,
+.mail:hover::before,
+.link:hover svg,
+.link:focus svg {
+  color: var(--accent-color);
+  fill: var(--accent-color);
+} */
+/* вопросы: 
+1. при фиксированном хедере возможно сейчас уже сделать, чтобы весь его контент при зуме был видимым. 
+2. так же при зуме bg начинает обрезаться картинка. 3. при нфжатии на кнопку Отправить в модальном окне не применяется transition  h
+ttps://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html
+https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
+
+/* .mail::before {
   display: inline-block;
   content: '';
   height: 12px;
@@ -151,12 +187,12 @@ p {
 .tel::before {
   display: inline-block;
   content: '';
-  height: 12px;
-  width: 16px;
+  height: 16px;
+  width: 10px;
   margin-right: 10px;
-  background-image: url('../images/icons/sprite.svg#tel');
+  background-image: url('../images/icons/smartphone.svg');
   align-self: center;
-}
+} */
 
 /* Секция Герой */
 .hero {
@@ -183,6 +219,7 @@ p {
   padding-top: 94px;
   padding-bottom: 94px;
 }
+
 .hero-title {
   font-weight: 900;
   font-size: 44px;
@@ -343,6 +380,94 @@ p {
 .foto-img h3 {
   margin-bottom: 10px;
 }
+.clients {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+.team-content {
+  padding: 30px 32px;
+}
+.team-icon {
+  display: flex;
+}
+
+.team-icon .link:hover {
+  background-color: var(--accent-color);
+}
+.links-icon {
+  margin-right: 10px;
+}
+
+.team-icon .list:last-child,
+.links-icon:last-child {
+  margin-right: 0;
+}
+
+.team-icon .links-icon {
+  display: flex;
+  height: 44px;
+  width: 44px;
+  align-items: center;
+
+  border-radius: 50%;
+  /* margin-right: 10px; */
+  color: var(--icon-gray-color);
+}
+
+.team-icon .link:hover {
+  color: var(--primary-white-color);
+}
+
+.team-icon .icon {
+  height: 20px;
+  width: 20px;
+  margin-left: auto;
+  margin-right: 10px;
+  fill: currentColor;
+}
+/* Clients */
+
+.clients-title {
+  margin-bottom: 50px;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+
+  color: var(--secondary-text-color);
+}
+
+.clients-lists {
+  display: flex;
+  margin: 0 -15px;
+}
+
+.clients .list {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.clients .link {
+  display: flex;
+  width: 170px;
+  height: 90px;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--icon-gray-color);
+  border-radius: 4px;
+  color: var(--icon-gray-color);
+}
+
+.clients .link:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+.clients .icon {
+  fill: currentColor;
+}
 .footer {
   background-color: var(--footer-color);
   padding-top: 60px;
@@ -380,6 +505,64 @@ p {
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
+}
+.footer .container {
+  display: flex;
+}
+.footer-left {
+  margin-right: 70px;
+}
+
+.footer-join .title {
+  display: inline-block;
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--primary-background-color);
+}
+
+.footer-join .list:not(:last-child) {
+  margin-right: 10px;
+}
+
+.footer-join .link {
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+}
+
+.footer-join .icon-instagram {
+  background-image: url('../images/icons/instagram.svg');
+}
+.footer-join .icon-twitter {
+  background-image: url('../images/icons/twitter.svg');
+}
+.footer-join .icon-facebook {
+  background-image: url('../images/icons/facebook.svg');
+}
+.footer-join .icon-linkedin {
+  background-image: url('../images/icons/linkedin.svg');
+}
+
+.footer-join .icon-instagram:hover,
+.footer-join .icon-twitter:hover,
+.footer-join .icon-facebook:hover,
+.footer-join .icon-linkedin:hover {
+  background-color: var(--akcent-color);
+}
+
+.footer-icon {
+  display: flex;
 }
 
 /* Portfolio */
