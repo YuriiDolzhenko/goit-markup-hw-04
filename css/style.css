@@ -66,7 +66,7 @@ p {
   padding: 0;
   margin: 0;
 }
-.container {
+.body .container {
   width: 1200px;
   padding-left: 15px;
   padding-right: 15px;
@@ -232,6 +232,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   /* padding-top: 200px; */
   margin-bottom: 30px;
 }
+/* class='btn btn-primary'  */
 .button {
   color: var(--primary-background-color);
   background-color: var(--akcent-color);
@@ -246,6 +247,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   padding: 10px 32px;
   height: 50px;
   min-width: 200px;
+  border: none;
   border-radius: 4px;
 }
 /* Прятать текст */
@@ -261,6 +263,31 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+.modal.show .modal-dialog {
+  margin-top: 261px;
+}
+.modal.show .modal-header,
+.modal.show .modal-footer {
+  border: none;
+}
+.modal.show .modal-content {
+  width: 528px;
+  height: 581px;
+}
+.modal-header .close {
+  width: 30px;
+  padding: 0;
+  margin: 0;
+}
+/* .close span {
+  border: 1px;
+  border-color: #000000;
+  border-radius: 50%;
+} */
+.modal-footer .btn btn-primary {
+  align-items: center;
+}
+
 .section-desc {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -331,6 +358,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 }
 .img-link img {
   display: block;
+  z-index: 1;
 }
 .img-text {
   margin-bottom: 50px;
@@ -339,6 +367,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   position: relative;
 }
 .img-posit {
+  z-index: 2;
   bottom: 0;
   right: 0;
   width: 370px;
@@ -387,6 +416,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 }
 .foto-list {
   display: flex;
+  justify-content: space-around;
 }
 .foto-img {
   justify-content: center;
@@ -413,10 +443,11 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 }
 .team-icon {
   display: flex;
+  justify-content: space-around;
 }
 
-.team-icon .link:hover {
-  background-color: var(--accent-color);
+.team-icon .links-icon:hover {
+  background-color: var(--akcent-color);
 }
 .links-icon {
   margin-right: 10px;
@@ -435,11 +466,11 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 
   border-radius: 50%;
   /* margin-right: 10px; */
-  color: var(--icon-gray-color);
+  fill: var(--icon-gray-color);
 }
 
-.team-icon .link:hover {
-  color: var(--primary-white-color);
+.team-icon .links-icon:hover {
+  fill: var(--primary-background-color);
 }
 
 .team-icon .icon {
@@ -484,9 +515,9 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   color: var(--icon-gray-color);
 }
 
-.clients .link:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
+.clients-lists .link:hover {
+  color: var(--akcent-color);
+  border-color: var(--akcent-color);
 }
 
 .clients .icon {
@@ -645,11 +676,18 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   margin-bottom: 30px;
   border: 1px solid #eeeeee;
   box-sizing: border-box;
-}
 
+  position: relative;
+  overflow: hidden;
+}
 .projects-item:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.projects-item:hover .overlay {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+  transform: translateX(0%);
 }
 .projects-item:nth-last-child(-n + 3) {
   margin-bottom: 0;
@@ -687,7 +725,32 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   padding-right: 24px;
   border: 0 1px 1px 1px solid #eeeeee;
 }
+.projects .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 294px;
 
+  padding-top: 63px;
+  padding-bottom: 63px;
+  padding-left: 24px;
+  padding-right: 24px;
+
+  background: rgba(33, 150, 243, 0.9);
+
+  transform: translateX(-100%);
+  transition: transform 250ms ease;
+
+  font-style: 500;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.56;
+
+  letter-spacing: 0.03em;
+
+  color: var(--primary-background-color);
+}
 /* line-height: 1.2; */
 /* 1.2 - auto - интерлиньяж */
 /* .test-container {
