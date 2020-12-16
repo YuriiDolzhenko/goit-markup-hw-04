@@ -300,7 +300,6 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 }
 
 .desc-li:not(:last-child) {
-  width: calc((100% - 90px) / 3);
   margin-right: 30px;
 }
 .section-desc h2 {
@@ -310,17 +309,18 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   text-transform: uppercase;
 }
 .section-desc li {
-  font-weight: 400;
+  /* font-weight: 400; */
+  width: calc((100% - 90px) / 3);
   font-size: 14px;
   line-height: 1.71;
   letter-spacing: 0.03em;
   text-align: left;
-  width: 270px;
+  /* width: 270px; */
 }
 .desc-text {
   margin-bottom: 10px;
 }
-.desc-li .icon::before {
+.desc .desc-li::before {
   display: block;
   content: '';
   height: 120px;
@@ -330,19 +330,19 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   background-color: var(--secondary-background-color);
 }
 
-.icon-antena::before {
-  background-image: url('../images/icons/sprite.svg#antena');
+.icons-antena::before {
+  background-image: url('../images/icons/antena.svg');
 }
 
-.icon-clock::before {
-  background-image: url('../images/icons/sprite.svg#clock');
+.icons-clock::before {
+  background-image: url('../images/icons/clock.svg');
 }
-.icon-ps::before {
-  background-image: url('../images/icons/sprite.svg#ps');
+.icons-ps::before {
+  background-image: url('../images/icons/ps.svg');
 }
 
-.icon-astronaut::before {
-  background-image: url('../images/icons/sprite.svg#astronaut');
+.icons-astronaut::before {
+  background-image: url('../images/icons/astronaut.svg');
 }
 
 .section-img {
