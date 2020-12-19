@@ -141,24 +141,39 @@ p {
 /* ссылки контактов */
 .header-li {
   display: flex;
+  align-items: center;
 }
 .link {
+  display: flex;
+  align-items: center;
   color: var(--primary-text-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .header-li .phone + .phone {
   margin-left: 30px;
 }
+.icon-contact {
+  display: block;
+  margin-right: 10px;
+}
+.contact-nav a:hover,
+.contact-nav a:focus {
+  color: var(--akcent-color);
+  --color4: var(--akcent-color);
+}
 
-.link:hover,
-.icon-mail:hover,
-.icon-tel:hover {
+.link:hover
+/* .icon-mail:hover,
+.icon-tel:hover */ {
   color: var(--akcent-color);
 }
-.header .icon-mail::before {
+/* .header .icon-mail::before {
   display: inline-block;
   content: '';
   height: 12px;
@@ -179,7 +194,7 @@ p {
 .phone .link {
   display: flex;
   align-items: center;
-}
+} */
 /* .link:hover,
 .mail:hover::before,
 .link:hover svg,
