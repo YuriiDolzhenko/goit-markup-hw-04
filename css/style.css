@@ -143,10 +143,11 @@ p {
   display: flex;
   align-items: center;
 }
-.link {
+.link-phone {
   display: flex;
   align-items: center;
   color: var(--primary-text-color);
+  fill: var(--primary-text-color);
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -162,46 +163,11 @@ p {
   display: block;
   margin-right: 10px;
 }
-.contact-nav a:hover,
-.contact-nav a:focus {
+.header-li .link-phone:hover {
   color: var(--akcent-color);
-  --color4: var(--akcent-color);
+  fill: var(--akcent-color);
 }
 
-.link:hover
-/* .icon-mail:hover,
-.icon-tel:hover */ {
-  color: var(--akcent-color);
-}
-/* .header .icon-mail::before {
-  display: inline-block;
-  content: '';
-  height: 12px;
-  width: 16px;
-  margin-right: 10px;
-  background-image: url('../images/icons/mail.svg');
-}
-
-.header .icon-tel::before {
-  display: inline-block;
-  content: '';
-  height: 16px;
-  width: 10px;
-  margin-right: 10px;
-  background-image: url('../images/icons/smartphone.svg');
-  align-self: center;
-}
-.phone .link {
-  display: flex;
-  align-items: center;
-} */
-/* .link:hover,
-.mail:hover::before,
-.link:hover svg,
-.link:focus svg {
-  color: var(--accent-color);
-  fill: var(--accent-color);
-} */
 /* вопросы: 
 1. при фиксированном хедере возможно сейчас уже сделать, чтобы весь его контент при зуме был видимым. 
 2. так же при зуме bg начинает обрезаться картинка. 3. при нфжатии на кнопку Отправить в модальном окне не применяется transition  h
@@ -209,24 +175,6 @@ ttps://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html
 https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 /* https://marishka95s.github.io/goit-markup-hw-06/index.html */
 /* https://github.com/marishka95s/goit-markup-hw-06/ */
-
-/* .mail::before {
-  display: inline-block;
-  content: '';
-  height: 12px;
-  width: 16px;
-  margin-right: 10px;
-  background-image: url('../images/icons/sprite.svg#mail');
-}
-.tel::before {
-  display: inline-block;
-  content: '';
-  height: 16px;
-  width: 10px;
-  margin-right: 10px;
-  background-image: url('../images/icons/smartphone.svg');
-  align-self: center;
-} */
 
 /* Секция Герой */
 .hero {
@@ -264,14 +212,13 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   /* padding-top: 200px; */
   margin-bottom: 30px;
 }
-/* class='btn btn-primary'  */
+
 .button {
   color: var(--primary-background-color);
   background-color: var(--akcent-color);
   font-weight: 700;
   font-size: 16px;
   line-height: 1.87;
-  /* display: flex; */
   align-items: center;
   text-align: center;
   letter-spacing: 0.06em;
@@ -281,6 +228,261 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   min-width: 200px;
   border: none;
   border-radius: 4px;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: visible;
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  min-height: 581px;
+  min-width: 528px;
+  padding: 40px;
+
+  background-color: var(--primary-background-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.form h2 {
+  margin-bottom: 12px;
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.03em;
+
+  color: var(--secondary-text-color);
+}
+.inputs {
+  margin-bottom: 20px;
+}
+.form-label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.form-label span {
+  text-align: left;
+  margin-bottom: 4px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: var(--secondary-text-color);
+}
+.form-input {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 42px;
+
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  box-sizing: border-box;
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-size: 16px;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.comment {
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+  padding-left: 16px;
+
+  max-width: 448px;
+  max-height: 120px;
+}
+.comment::placeholder {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+.form-label svg {
+  position: absolute;
+  bottom: 13.5px;
+  left: 12px;
+  fill: var(--secondary-text-color);
+}
+.modal input:focus,
+.modal textarea:focus {
+  border-color: var(--akcent-color);
+  outline: none;
+  cursor: pointer;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal input::placeholder {
+  cursor: pointer;
+}
+.modal input:focus::placeholder {
+  cursor: pointer;
+}
+.modal input:focus ~ svg {
+  fill: var(--akcent-color);
+  cursor: pointer;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* .form-label::placeholder {
+  color: transparent;
+}
+.form-label input:not(:placeholder-shown) + svg {
+  fill: var(--accent-color);
+} */
+.checkbox {
+  align-self: center;
+}
+.checkbox-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.checkbox span {
+  align-self: center;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+
+  color: var(--primary-text-color);
+}
+.checkbox a {
+  text-decoration-line: underline;
+  color: var(--akcent-color);
+}
+.checkbox-input + svg {
+  display: inline-block;
+  margin-right: 7px;
+  height: 15px;
+  width: 16px;
+
+  background-color: var(--primary-background-color);
+  border: 2px solid var(--secondary-text-color);
+  border-radius: 2px;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.checkbox-input:checked + svg {
+  background-color: var(--akcent-color);
+  background-image: url('../images/check.svg');
+  background-size: contain;
+  background-origin: border-box;
+  border-color: transparent;
+  border-radius: 2px;
+
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* .checkbox-input:focus + svg {
+  outline: 2px solid var(--accent-color);
+}
+.checkbox-input:checked:focus + svg {
+  outline: 2px solid var(--main-text-color);
+} */
+.form-button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background-color: var(--akcent-color);
+  color: var(--primary-background-color);
+  --color5: var(--primary-background-color);
+  background: var(--akcent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  border: none;
+
+  align-self: center;
+  padding-right: 55px;
+  padding-left: 56px;
+}
+.form-button:hover,
+.form-button:focus {
+  background: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.modal-close-svg {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 30px;
+  width: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  fill: var(--logo-color);
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--primary-background-color);
+
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close-svg:hover,
+.modal-close-svg:focus {
+  fill: var(--akcent-color);
+  cursor: pointer;
 }
 /* Прятать текст */
 .visually-hidden {
@@ -456,6 +658,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 
 .team-icon .links-icon:hover {
   background-color: var(--akcent-color);
+  fill: var(--primary-background-color);
 }
 .links-icon {
   margin-right: 10px;
@@ -471,22 +674,16 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   height: 44px;
   width: 44px;
   align-items: center;
-
   border-radius: 50%;
   /* margin-right: 10px; */
   fill: var(--icon-gray-color);
-}
-
-.team-icon .links-icon:hover {
-  fill: var(--primary-background-color);
 }
 
 .team-icon .icon {
   height: 20px;
   width: 20px;
   margin-left: auto;
-  margin-right: 10px;
-  fill: currentColor;
+  margin-right: 12px;
 }
 /* Clients */
 
@@ -521,10 +718,12 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   border: 1px solid var(--icon-gray-color);
   border-radius: 4px;
   color: var(--icon-gray-color);
+  fill: var(--icon-gray-color);
 }
 
 .clients-lists .link:hover {
   color: var(--akcent-color);
+  fill: var(--akcent-color);
   border-color: var(--akcent-color);
 }
 
@@ -588,12 +787,38 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 
   color: var(--primary-background-color);
 }
+.footer-icon {
+  display: flex;
+}
+.footer-list .footer-links-icon:hover {
+  background-color: var(--akcent-color);
+  fill: var(--primary-background-color);
+}
+.footer-links-icon {
+  margin-right: 10px;
+}
 
+.footer-list .footer-links-icon {
+  display: flex;
+  height: 44px;
+  width: 44px;
+  align-items: center;
+  border-radius: 50%;
+
+  fill: var(--primary-background-color);
+}
+
+.footer-list .footer-icon {
+  height: 20px;
+  width: 20px;
+  margin-left: auto;
+  margin-right: 12px;
+}
 .footer-join .list:not(:last-child) {
   margin-right: 10px;
 }
 
-.footer-join .link {
+.footer-join .footer-list {
   display: inline-block;
   height: 44px;
   width: 44px;
@@ -602,30 +827,6 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 50%;
-}
-
-.footer-join .icon-instagram {
-  background-image: url('../images/icons/instagram.svg');
-}
-.footer-join .icon-twitter {
-  background-image: url('../images/icons/twitter.svg');
-}
-.footer-join .icon-facebook {
-  background-image: url('../images/icons/facebook.svg');
-}
-.footer-join .icon-linkedin {
-  background-image: url('../images/icons/linkedin.svg');
-}
-
-.footer-join .icon-instagram:hover,
-.footer-join .icon-twitter:hover,
-.footer-join .icon-facebook:hover,
-.footer-join .icon-linkedin:hover {
-  background-color: var(--akcent-color);
-}
-
-.footer-icon {
-  display: flex;
 }
 
 /* Portfolio */
@@ -673,12 +874,9 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 .projects {
   display: flex;
   flex-wrap: wrap;
-  /* margin-right: -30px;
-  margin-bottom: -30px; */
   list-style: none;
 }
 .projects-item {
-  /* width: 370px; */
   width: calc((100% - 60px) / 3);
   margin-right: 30px;
   margin-bottom: 30px;
@@ -710,8 +908,6 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   font-size: 18px;
   line-height: 2;
   letter-spacing: 0.06em;
-  /* margin-top: 20px;
-  margin-bottom: 4px; */
 }
 .projects li {
   text-align: left;
