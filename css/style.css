@@ -228,6 +228,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   min-width: 200px;
   border: none;
   border-radius: 4px;
+  cursor: pointer;
 }
 .backdrop {
   position: fixed;
@@ -774,7 +775,9 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 .footer-left {
   margin-right: 70px;
 }
-
+.footer-join {
+  margin-right: 93px;
+}
 .footer-join .title {
   display: inline-block;
   margin-bottom: 20px;
@@ -828,6 +831,85 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   background-position: center;
   border-radius: 50%;
 }
+.form-submit {
+  display: flex;
+}
+.right-part .title {
+  display: inline-block;
+  margin-bottom: 20px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--primary-background-color);
+}
+.form-submit .form-input-footer {
+  margin-right: 12px;
+  padding-top: 15px;
+  padding-right: 16px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  width: 358px;
+  height: 50px;
+
+  color: var(--primary-background-color);
+  background-color: var(--footer-color);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  border-radius: 4px;
+}
+.form-input-footer::placeholder {
+  display: flex;
+  align-items: center;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+}
+.form-input-footer:not(:placeholder-shown) + .form-input-footer {
+  color: var(--primary-background-color);
+  background-color: var(--footer-color);
+}
+
+.button-submit {
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  padding-top: 10px;
+  padding-right: 28px;
+  padding-bottom: 10px;
+  padding-left: 29px;
+
+  background-color: var(--akcent-color);
+  color: var(--primary-background-color);
+  fill: var(--primary-background-color);
+  background: var(--akcent-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.87;
+  letter-spacing: 0.06em;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-submit svg {
+  margin-left: 10px;
+  background-color: var(--akcent-color);
+  fill: var(--primary-background-color);
+}
 
 /* Portfolio */
 .header {
@@ -863,6 +945,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   padding: 6px 21px;
   border-radius: 4px;
   border: 0px;
+  cursor: pointer;
 }
 .benefits .benefits-button:hover,
 .benefits .benefits-button:focus {
