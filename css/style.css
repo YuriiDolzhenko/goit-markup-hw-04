@@ -731,6 +731,8 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 .clients .icon {
   fill: currentColor;
 }
+
+/* Footer */
 .footer {
   background-color: var(--footer-color);
   padding-top: 60px;
@@ -771,6 +773,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
 }
 .footer .container {
   display: flex;
+  align-items: baseline;
 }
 .footer-left {
   margin-right: 70px;
@@ -797,7 +800,7 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   background-color: var(--akcent-color);
   fill: var(--primary-background-color);
 }
-.footer-links-icon {
+.footer-list {
   margin-right: 10px;
 }
 
@@ -969,11 +972,11 @@ https://mariia-kovalchuk.github.io/goit-markup-hw-05/index.html */
   position: relative;
   overflow: hidden;
 }
-.projects-item:hover {
+.projects-item a:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
-.projects-item:hover .overlay {
+.projects-item a:hover .overlay {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   transform: translateX(0%);
